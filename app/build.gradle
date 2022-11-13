@@ -18,7 +18,13 @@ android {
     }
 
     buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+            applicationIdSuffix = ".dev"
+        }
         release {
+            debuggable false
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -84,5 +90,8 @@ dependencies {
     implementation "com.google.dagger:hilt-android:$version_hilt"
     kapt "com.google.dagger:hilt-android-compiler:$version_hilt"
     kapt "androidx.hilt:hilt-compiler:1.0.0"
+
+    // Timber
+    implementation "com.jakewharton.timber:timber:$version_timber"
 
 }
