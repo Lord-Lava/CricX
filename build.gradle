@@ -16,6 +16,7 @@ buildscript {
         version_gson = "2.9.0"
         version_hilt = "2.42"
         version_coroutine = "1.6.0"
+        version_timber = "5.0.1"
     }
 
     dependencies {
