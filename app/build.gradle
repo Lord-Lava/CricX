@@ -31,6 +31,7 @@ android {
     }
     buildFeatures {
         dataBinding true
+        viewBinding true
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -47,17 +48,42 @@ dependencies {
     implementation "androidx.core:core-ktx:$version_core"
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
 
-    // ViewModel
+    //Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$version_kotlin"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$version_kotlin"
+    implementation "androidx.annotation:annotation:$version_annotation"
+
+    // Live Data, View Model
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$version_lifecycle"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$version_lifecycle"
+
+    // Navigation Components
+    implementation "androidx.constraintlayout:constraintlayout:$version_constraint_layout"
+    implementation "androidx.navigation:navigation-fragment-ktx:$version_nav"
+    implementation "androidx.navigation:navigation-ui-ktx:$version_nav"
+
+    /**-------------------testing libs------------------------------------------**/
+    //UI Testing , AndroidJUnitRunner and JUnit Rules & Espresso dependencies
+    //junit 5
+    androidTestImplementation "androidx.test.ext:junit-ktx:$version_androidx_junit"
+    testImplementation "org.junit.jupiter:junit-jupiter-engine:$version_junit"
+    testImplementation "io.mockk:mockk:$version_mock"
+    androidTestImplementation "org.assertj:assertj-core:$version_assertj"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:$version_expresso_intents"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$version_coroutines_test"
+    implementation "androidx.arch.core:core-testing:$version_core_testing"
+    implementation "androidx.test.espresso:espresso-idling-resource:$version_expresso"
+    implementation("androidx.test.espresso:espresso-contrib:$version_expresso") {
+        exclude group: 'org.checkerframework', module: 'checker'
+        exclude group: 'com.google.protobuf', module: 'protobuf-lite'
+    }
+    /**-------------------------------------------------------------**/
+
     // LiveData
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$version_lifecycle"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$version_lifecycle"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$version_lifecycle"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$version_lifecycle"
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 
@@ -74,17 +100,16 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$version_coroutine"
 
     // Coroutine Lifecycle Scopes
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
 
-    // Navigation Components
-    implementation("androidx.navigation:navigation-fragment-ktx:$version_nav")
-    implementation("androidx.navigation:navigation-ui-ktx:$version_nav")
-
-    // Retrofit
-    implementation("com.squareup.retrofit2:retrofit:$version_retrofit")
-    implementation("com.squareup.retrofit2:converter-gson:$version_gson")
-    implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2"
+    // Retrofit, Glide, Moshi
+    implementation "com.squareup.retrofit2:converter-moshi:$version_retrofit"
+    implementation "com.squareup.moshi:moshi:$version_moshi"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$version_moshi"
+    implementation "com.squareup.okhttp3:logging-interceptor:$version_okhttp_interceptor"
+    implementation("com.github.bumptech.glide:glide:$version_glide") {
+        exclude group: "com.android.support"
+    }
 
     // Dagger Hilt
     implementation "com.google.dagger:hilt-android:$version_hilt"
@@ -93,5 +118,9 @@ dependencies {
 
     // Timber
     implementation "com.jakewharton.timber:timber:$version_timber"
+
+    // Display Scaling
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.intuit.ssp:ssp-android:1.0.6'
 
 }
