@@ -13,6 +13,13 @@ android {
         targetSdk 33
         versionCode 1
         versionName "1.0"
+        vectorDrawables.useSupportLibrary
+
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file("local.properties").newDataInputStream())
+
+        buildConfigField("String", "SERVER_URL", "\"${properties.getProperty("SERVER_URL")}\"")
+        buildConfigField("String", "API_KEY", "\"${properties.getProperty("API_KEY")}\"")
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -85,7 +92,6 @@ dependencies {
 
     // LiveData
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$version_lifecycle"
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 
     // Room and Lifecycle dependencies
     implementation "androidx.room:room-runtime:$version_room"
@@ -98,9 +104,6 @@ dependencies {
     // Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version_coroutine"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$version_coroutine"
-
-    // Coroutine Lifecycle Scopes
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
 
     // Retrofit, Glide, Moshi
     implementation "com.squareup.retrofit2:converter-moshi:$version_retrofit"
@@ -120,7 +123,10 @@ dependencies {
     implementation "com.jakewharton.timber:timber:$version_timber"
 
     // Display Scaling
-    implementation 'com.intuit.sdp:sdp-android:1.0.6'
-    implementation 'com.intuit.ssp:ssp-android:1.0.6'
+    implementation "com.intuit.sdp:sdp-android:$version_sdp"
+    implementation "com.intuit.ssp:ssp-android:$version_sdp"
+
+    // Smooth Bottom Bar
+    implementation 'com.github.ibrahimsn98:SmoothBottomBar:1.7.9'
 
 }

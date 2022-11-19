@@ -8,4 +8,10 @@
     <string name="invalid_password">Password must be >4 characters</string>
     <string name="invalid_username_and_password">please check your username and password</string>
     <string name="search_error">there is no such recipe name</string>
+
+    <!--    Bottom Menu Strings-->
+    <string name="menu_profile">Profile</string>
+    <string name="menu_news">News</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_matches">Matches</string>
 </resources>
