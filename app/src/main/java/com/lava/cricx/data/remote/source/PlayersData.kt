@@ -14,8 +14,8 @@ class PlayersData @Inject constructor(private val playersService: PlayersService
 
     override suspend fun getTrendingPlayers(): Resource<TrendingPlayersDto> {
         return when (val response = processCall(playersService::getTrendingPlayers)) {
-            is List<*> -> {
-                Resource.Success(data = (response as TrendingPlayersDto))
+            is TrendingPlayersDto -> {
+                Resource.Success(data = response)
             }
             else -> {
                 Resource.DataError(errorCode = response as Int)

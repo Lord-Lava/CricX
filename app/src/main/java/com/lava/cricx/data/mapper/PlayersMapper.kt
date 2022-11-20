@@ -6,6 +6,6 @@ import com.lava.cricx.domain.model.players.TrendingPlayers
 fun TrendingPlayersDto.toTrendingPlayers(): TrendingPlayers {
     return TrendingPlayers(
         category = category,
-        player = player
+        playersList = playersList
     )
 }
