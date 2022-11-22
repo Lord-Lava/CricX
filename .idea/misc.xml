@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/drawable/ic_cricket.xml" value="0.22" />
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/drawable/ic_flag_india.xml" value="0.225" />
         <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/drawable/ic_home.xml" value="0.22" />
         <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/drawable/ic_news.xml" value="0.22" />
         <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/drawable/ic_search.xml" value="0.22" />
@@ -15,7 +16,8 @@
         <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/layout/fragment_news.xml" value="0.2171875" />
         <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/layout/fragment_players_search.xml" value="0.2" />
         <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/layout/fragment_profile.xml" value="0.1782051282051282" />
-        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/layout/item_trending_player.xml" value="0.2171875" />
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/layout/item_searched_player.xml" value="0.4" />
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/layout/item_trending_player.xml" value="0.4" />
         <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/menu/menu_bottom_navbar.xml" value="0.6" />
       </map>
     </option>

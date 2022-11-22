@@ -2,15 +2,15 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/clTrendingPlayerItem"
+    android:id="@+id/clSearchedPlayers"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="@dimen/_8sdp">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivPlayer"
-        android:layout_width="@dimen/_70sdp"
-        android:layout_height="@dimen/_70sdp"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -23,43 +23,19 @@
         android:layout_margin="@dimen/_4sdp"
         android:text="@string/default_player_name"
         android:textColor="@color/black"
-        android:textSize="@dimen/_16ssp"
+        android:textSize="@dimen/_12ssp"
         app:layout_constraintStart_toEndOf="@id/ivPlayer"
         app:layout_constraintTop_toTopOf="@id/ivPlayer" />
-
-    <!--    <com.google.android.material.imageview.ShapeableImageView-->
-    <!--        android:id="@+id/ivFlag"-->
-    <!--        android:layout_width="@dimen/_20sdp"-->
-    <!--        android:layout_height="@dimen/_20sdp"-->
-    <!--        android:layout_margin="@dimen/_3sdp"-->
-    <!--        android:padding="2dp"-->
-    <!--        app:layout_constraintStart_toStartOf="@id/tvPlayerName"-->
-    <!--        app:layout_constraintTop_toBottomOf="@id/tvPlayerName"-->
-    <!--        app:shapeAppearanceOverlay="@style/roundStroked"-->
-    <!--        app:strokeWidth="2dp"-->
-    <!--        tools:src="@drawable/ic_flag_india" />-->
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvPlayerTeam"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/_3sdp"
         android:text="@string/default_team"
         android:textColor="@color/black"
-        android:textSize="@dimen/_14ssp"
-        app:layout_constraintBottom_toTopOf="@id/tvPlayerRole"
+        android:textSize="@dimen/_10ssp"
+        app:layout_constraintBottom_toBottomOf="@id/ivPlayer"
         app:layout_constraintStart_toStartOf="@id/tvPlayerName"
         app:layout_constraintTop_toBottomOf="@id/tvPlayerName" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvPlayerRole"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/default_player_role"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_14ssp"
-        app:layout_constraintBottom_toBottomOf="@id/ivPlayer"
-        app:layout_constraintStart_toStartOf="@id/tvPlayerTeam"
-        app:layout_constraintTop_toBottomOf="@id/tvPlayerTeam" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

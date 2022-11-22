@@ -5,12 +5,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.lava.cricx.data.Resource
-import com.lava.cricx.data.dto.players.TrendingPlayersDto
+import com.lava.cricx.data.dto.players.PlayersListDto
 import com.lava.cricx.domain.repository.PlayersRepository
 import com.lava.cricx.ui.base.BaseViewModel
 import com.lava.cricx.util.SingleEvent
 import com.lava.cricx.util.wrapEspressoIdlingResource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -20,12 +22,20 @@ class PlayerSearchViewModel @Inject constructor(
 ) : BaseViewModel() {
 
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-    private val _trendingPlayersList = MutableLiveData<Resource<TrendingPlayersDto>>()
-    val trendingPlayersList = _trendingPlayersList as LiveData<Resource<TrendingPlayersDto>>
+    private val _trendingPlayersList = MutableLiveData<Resource<PlayersListDto>>()
+    val trendingPlayersList = _trendingPlayersList as LiveData<Resource<PlayersListDto>>
+
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    private val _searchedPlayersResponseList = MutableLiveData<Resource<PlayersListDto>>()
+    val searchedPlayersResponseList = _searchedPlayersResponseList as LiveData<Resource<PlayersListDto>>
 
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
     private val _showToast = MutableLiveData<SingleEvent<Any>>()
     val showToast = _showToast as LiveData<SingleEvent<Any>>
+
+    init {
+        getTrendingPlayers()
+    }
 
     fun getTrendingPlayers() {
         viewModelScope.launch {
@@ -33,6 +43,18 @@ class PlayerSearchViewModel @Inject constructor(
             wrapEspressoIdlingResource {
                 playersRepository.getTrendingPlayers().collect {
                     _trendingPlayersList.value = it
+                }
+            }
+        }
+    }
+
+    fun searchPlayer(playerName: String) {
+        _searchedPlayersResponseList.value = Resource.Loading()
+        viewModelScope.launch {
+            wrapEspressoIdlingResource {
+                delay(300L)
+                playersRepository.searchPlayer(playerName).collectLatest {
+                    _searchedPlayersResponseList.value = it
                 }
             }
         }
