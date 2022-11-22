@@ -14,3 +14,4 @@ const val PASSWORD_ERROR = -101
 const val USER_NAME_ERROR = -102
 const val CHECK_YOUR_FIELDS = -103
 const val SEARCH_ERROR = -104
+const val NO_CONTENT = -105

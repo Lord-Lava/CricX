@@ -1,7 +1,7 @@
 package com.lava.cricx.data.repository
 
 import com.lava.cricx.data.Resource
-import com.lava.cricx.data.dto.players.TrendingPlayersDto
+import com.lava.cricx.data.dto.players.PlayersListDto
 import com.lava.cricx.data.remote.source.PlayersDataSource
 import com.lava.cricx.domain.repository.PlayersRepository
 import kotlinx.coroutines.flow.Flow
@@ -15,9 +15,15 @@ class PlayersRepositoryImpl @Inject constructor(
     private val ioDispatcher: CoroutineContext,
 ) : PlayersRepository {
 
-    override suspend fun getTrendingPlayers(): Flow<Resource<TrendingPlayersDto>> {
+    override suspend fun getTrendingPlayers(): Flow<Resource<PlayersListDto>> {
         return flow {
             emit(playersDataSource.getTrendingPlayers())
         }.flowOn(ioDispatcher)
+    }
+
+    override suspend fun searchPlayer(playerName: String): Flow<Resource<PlayersListDto>> {
+        return flow {
+            emit(playersDataSource.searchPlayer(playerName))
+        }
     }
 }

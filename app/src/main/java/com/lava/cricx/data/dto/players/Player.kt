@@ -1,4 +1,4 @@
-package com.lava.cricx.domain.model.players
+package com.lava.cricx.data.dto.players
 
 import com.squareup.moshi.Json
 
@@ -10,5 +10,5 @@ data class Player(
     @Json(name = "name")
     val name: String,
     @Json(name = "teamName")
-    val teamName: String
+    val teamName: String,
 )

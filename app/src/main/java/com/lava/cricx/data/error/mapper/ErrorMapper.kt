@@ -20,6 +20,7 @@ class ErrorMapper @Inject constructor(@ApplicationContext val context: Context) 
             Pair(PASSWORD_ERROR, getErrorString(R.string.invalid_password)),
             Pair(USER_NAME_ERROR, getErrorString(R.string.invalid_username)),
             Pair(CHECK_YOUR_FIELDS, getErrorString(R.string.invalid_username_and_password)),
-            Pair(SEARCH_ERROR, getErrorString(R.string.search_error))
+            Pair(SEARCH_ERROR, getErrorString(R.string.search_error)),
+            Pair(NO_CONTENT, getErrorString(R.string.no_content))
         ).withDefault { getErrorString(R.string.network_error) }
 }

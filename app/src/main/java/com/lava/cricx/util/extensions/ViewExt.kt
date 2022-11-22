@@ -17,24 +17,24 @@ import com.lava.cricx.util.SingleEvent
 
 fun View.showKeyboard() {
     (this.context.getSystemService(Service.INPUT_METHOD_SERVICE) as? InputMethodManager)
-            ?.showSoftInput(this, 0)
+        ?.showSoftInput(this, 0)
 }
 
 fun View.hideKeyboard() {
     (this.context.getSystemService(Service.INPUT_METHOD_SERVICE) as? InputMethodManager)
-            ?.hideSoftInputFromWindow(this.windowToken, 0)
+        ?.hideSoftInputFromWindow(this.windowToken, 0)
 }
 
 fun View.visible() {
-    if(this.visibility != View.VISIBLE) this.visibility = View.VISIBLE
+    if (this.visibility != View.VISIBLE) this.visibility = View.VISIBLE
 }
 
 fun View.gone() {
-    if(this.visibility != View.GONE) this.visibility = View.GONE
+    if (this.visibility != View.GONE) this.visibility = View.GONE
 }
 
 fun View.invisible() {
-    if(this.visibility != View.GONE) this.visibility = View.GONE
+    if (this.visibility != View.GONE) this.visibility = View.GONE
 }
 
 
@@ -62,8 +62,9 @@ fun View.showSnackbar(snackbarText: String, timeLength: Int = Snackbar.LENGTH_SH
 fun View.setupSnackbar(
     lifecycleOwner: LifecycleOwner,
     snackbarEvent: LiveData<SingleEvent<Any>>,
-    timeLength: Int = Snackbar.LENGTH_SHORT) {
-    snackbarEvent.observe(lifecycleOwner, Observer { event ->
+    timeLength: Int = Snackbar.LENGTH_SHORT,
+) {
+    snackbarEvent.observe(lifecycleOwner) { event ->
         event.getContentIfNotHandled()?.let {
             when (it) {
                 is String -> {
@@ -79,24 +80,25 @@ fun View.setupSnackbar(
             }
 
         }
-    })
+    }
 }
 
 fun View.showToast(
-        lifecycleOwner: LifecycleOwner,
-        ToastEvent: LiveData<SingleEvent<Any>>,
-        timeLength: Int = Toast.LENGTH_SHORT
+    lifecycleOwner: LifecycleOwner,
+    ToastEvent: LiveData<SingleEvent<Any>>,
+    timeLength: Int = Toast.LENGTH_SHORT,
 ) {
-    ToastEvent.observe(lifecycleOwner, Observer { event ->
+    ToastEvent.observe(lifecycleOwner) { event ->
         event.getContentIfNotHandled()?.let {
             when (it) {
                 is String -> Toast.makeText(this.context, it, timeLength).show()
-                is Int -> Toast.makeText(this.context, this.context.getString(it), timeLength).show()
+                is Int -> Toast.makeText(this.context, this.context.getString(it), timeLength)
+                    .show()
                 else -> {
                 }
             }
         }
-    })
+    }
 }
 
 fun Context.showToast(message: String, duration: Int = Toast.LENGTH_SHORT) {
