@@ -11,6 +11,7 @@ import com.lava.cricx.ui.base.BaseViewModel
 import com.lava.cricx.util.SingleEvent
 import com.lava.cricx.util.wrapEspressoIdlingResource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -18,7 +19,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PlayerSearchViewModel @Inject constructor(
-    private val playersRepository: PlayersRepository
+    private val playersRepository: PlayersRepository,
 ) : BaseViewModel() {
 
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
@@ -27,11 +28,15 @@ class PlayerSearchViewModel @Inject constructor(
 
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
     private val _searchedPlayersResponseList = MutableLiveData<Resource<PlayersListDto>>()
-    val searchedPlayersResponseList = _searchedPlayersResponseList as LiveData<Resource<PlayersListDto>>
+    val searchedPlayersResponseList =
+        _searchedPlayersResponseList as LiveData<Resource<PlayersListDto>>
 
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
     private val _showToast = MutableLiveData<SingleEvent<Any>>()
     val showToast = _showToast as LiveData<SingleEvent<Any>>
+
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    private var searchPlayerJob: Job? = null
 
     init {
         getTrendingPlayers()
@@ -50,7 +55,7 @@ class PlayerSearchViewModel @Inject constructor(
 
     fun searchPlayer(playerName: String) {
         _searchedPlayersResponseList.value = Resource.Loading()
-        viewModelScope.launch {
+        searchPlayerJob = viewModelScope.launch {
             wrapEspressoIdlingResource {
                 delay(300L)
                 playersRepository.searchPlayer(playerName).collectLatest {
@@ -58,6 +63,10 @@ class PlayerSearchViewModel @Inject constructor(
                 }
             }
         }
+    }
+
+    fun cancelPlayerSearch() {
+        searchPlayerJob?.cancel()
     }
 
     fun showToastMessage(errorCode: Int) {
