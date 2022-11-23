@@ -37,7 +37,6 @@ class PlayersSearchFragment :
         binding.rvPlayersList.layoutManager = layoutManager
 
         binding.etPlayerName.afterTextChanged {
-            viewModel.cancelPlayerSearch()
             if (it.isEmpty()) {
                 viewModel.getTrendingPlayers()
             } else if (it.isNotEmpty() && it.length >= 2) {

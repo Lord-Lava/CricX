@@ -55,6 +55,7 @@ class PlayerSearchViewModel @Inject constructor(
 
     fun searchPlayer(playerName: String) {
         _searchedPlayersResponseList.value = Resource.Loading()
+        searchPlayerJob?.cancel()
         searchPlayerJob = viewModelScope.launch {
             wrapEspressoIdlingResource {
                 delay(300L)
@@ -63,10 +64,6 @@ class PlayerSearchViewModel @Inject constructor(
                 }
             }
         }
-    }
-
-    fun cancelPlayerSearch() {
-        searchPlayerJob?.cancel()
     }
 
     fun showToastMessage(errorCode: Int) {
