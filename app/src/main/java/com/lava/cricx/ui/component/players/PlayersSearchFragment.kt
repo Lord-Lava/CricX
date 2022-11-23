@@ -37,10 +37,10 @@ class PlayersSearchFragment :
         binding.rvPlayersList.layoutManager = layoutManager
 
         binding.etPlayerName.afterTextChanged {
-            if(it.isEmpty()) {
+            viewModel.cancelPlayerSearch()
+            if (it.isEmpty()) {
                 viewModel.getTrendingPlayers()
-            }
-            else if(it.isNotEmpty() && it.length >= 2) {
+            } else if (it.isNotEmpty() && it.length >= 2) {
                 viewModel.searchPlayer(it)
             }
         }
@@ -107,7 +107,8 @@ class PlayersSearchFragment :
 
     override fun observeViewModel() {
         observe(liveData = viewModel.trendingPlayersList, action = ::handleTrendingPlayersList)
-        observe(liveData = viewModel.searchedPlayersResponseList, action = ::handleSearchedPlayersList)
+        observe(liveData = viewModel.searchedPlayersResponseList,
+            action = ::handleSearchedPlayersList)
         observeToast(viewModel.showToast)
     }
 }
