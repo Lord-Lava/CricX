@@ -9,9 +9,8 @@ import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lava.cricx.R
 import com.lava.cricx.data.Resource
-import com.lava.cricx.data.dto.players.PlayersListDto
 import com.lava.cricx.data.dto.mapper.toPlayersList
-import com.lava.cricx.data.dto.players.Player
+import com.lava.cricx.data.dto.players.PlayersListDto
 import com.lava.cricx.databinding.FragmentPlayersSearchBinding
 import com.lava.cricx.domain.model.players.PlayersList
 import com.lava.cricx.ui.base.BaseFragment
@@ -35,12 +34,24 @@ class PlayersSearchFragment :
     override fun setupViews() {
         val layoutManager = LinearLayoutManager(requireContext())
         binding.rvPlayersList.layoutManager = layoutManager
+    }
 
+    override fun onResume() {
+        super.onResume()
         binding.etPlayerName.afterTextChanged {
-            if (it.isEmpty()) {
-                viewModel.getTrendingPlayers()
-            } else if (it.isNotEmpty() && it.length >= 2) {
-                viewModel.searchPlayer(it)
+            viewModel.updateSearchQuery(it)
+        }
+    }
+
+    private fun handleSearchQuery(event: SingleEvent<String>) {
+        event.getContentIfNotHandled()?.let { query ->
+            if (query.isEmpty()) {
+                if (viewModel.trendingPlayersList.value != null)
+                    bindTrendingPlayersListData(viewModel.trendingPlayersList.value?.data?.toPlayersList())
+                else
+                    viewModel.getTrendingPlayers()
+            } else if (query.isNotEmpty() && query.length >= 2) {
+                viewModel.searchPlayer(query)
             }
         }
     }
@@ -106,8 +117,8 @@ class PlayersSearchFragment :
 
     override fun observeViewModel() {
         observe(liveData = viewModel.trendingPlayersList, action = ::handleTrendingPlayersList)
-        observe(liveData = viewModel.searchedPlayersResponseList,
-            action = ::handleSearchedPlayersList)
+        observe(liveData = viewModel.searchedPlayersResponseList, action = ::handleSearchedPlayersList)
+        observeEvent(liveData = viewModel.searchQuery, action = ::handleSearchQuery)
         observeToast(viewModel.showToast)
     }
 }

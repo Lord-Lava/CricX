@@ -32,6 +32,10 @@ class PlayerSearchViewModel @Inject constructor(
         _searchedPlayersResponseList as LiveData<Resource<PlayersListDto>>
 
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    private val _searchQuery = MutableLiveData<SingleEvent<String>>()
+    val searchQuery = _searchQuery as LiveData<SingleEvent<String>>
+
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
     private val _showToast = MutableLiveData<SingleEvent<Any>>()
     val showToast = _showToast as LiveData<SingleEvent<Any>>
 
@@ -51,6 +55,10 @@ class PlayerSearchViewModel @Inject constructor(
                 }
             }
         }
+    }
+
+    fun updateSearchQuery(query: String) {
+        _searchQuery.value = SingleEvent(query)
     }
 
     fun searchPlayer(playerName: String) {
