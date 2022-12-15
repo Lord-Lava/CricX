@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clPlayerInfo"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ProgressBar
+        android:id="@+id/pbLoading"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+    <ScrollView
+        android:id="@+id/svInfo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_8sdp">
+
+            <!--            <androidx.constraintlayout.widget.Group-->
+            <!--                android:id="@+id/groupData"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                app:constraint_referenced_ids="tvPlayerName, tvPlayerTeam, tvPlayerRole, tvPersonalInfo, tvRanking, tvBorn, tvNickName, tvNickNameInfo, tvDob, tvBirthPlace, tvBirthPlaceInfo, tvHeight, tvHeightInfo, tvTest, tvOdi, tvT20, tvBat, tvBall, tvBatTest, tvBatOdi, tvBatT20, tvBallTest, tvBallOdi, tvBallT20, tvBio, tvBioInfo, ivPlayer" />-->
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivPlayer"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
+                android:layout_marginVertical="@dimen/_20sdp"
+                android:src="@drawable/ic_user_rect"
+                app:layout_constraintBottom_toTopOf="@id/tvPersonalInfo"
+                app:layout_constraintEnd_toStartOf="@id/tvPlayerName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/roundRect"
+                tools:src="@drawable/ic_player_default" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPlayerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_5sdp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/blank"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16ssp"
+                app:fontFamily="@font/inter"
+                app:layout_constraintBottom_toTopOf="@id/tvPlayerTeam"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivPlayer"
+                app:layout_constraintTop_toTopOf="@id/ivPlayer"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="Virat Kohli" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPlayerTeam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:text="@string/blank"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp"
+                app:fontFamily="@font/inter"
+                app:layout_constraintBottom_toTopOf="@id/tvPlayerRole"
+                app:layout_constraintStart_toStartOf="@id/tvPlayerName"
+                app:layout_constraintTop_toBottomOf="@id/tvPlayerName"
+                tools:text="@string/default_player_team" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPlayerRole"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/blank"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp"
+                app:fontFamily="@font/inter"
+                app:layout_constraintBottom_toBottomOf="@id/ivPlayer"
+                app:layout_constraintStart_toStartOf="@id/tvPlayerTeam"
+                app:layout_constraintTop_toBottomOf="@id/tvPlayerTeam"
+                tools:text="@string/default_player_role" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPersonalInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8sdp"
+                android:text="@string/personal_information_underlined"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13ssp"
+                app:fontFamily="@font/inter"
+                app:layout_constraintBottom_toTopOf="@id/tvNickName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivPlayer"
+                app:textAllCaps="true" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvNickName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8sdp"
+                android:text="@string/nickname"
+                android:textColor="@color/police_blue"
+                android:textSize="@dimen/_12ssp"
+                app:fontFamily="@font/inter"
+                app:layout_constraintEnd_toStartOf="@id/tvNickNameInfo"
+                app:layout_constraintStart_toStartOf="@id/tvPersonalInfo"
+                app:layout_constraintTop_toBottomOf="@id/tvPersonalInfo" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvNickNameInfo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8sdp"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:text="@string/blank"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                app:fontFamily="@font/inter"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvNickName"
+                app:layout_constraintTop_toBottomOf="@id/tvPersonalInfo"
+                tools:text="Chiku" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvBorn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:text="@string/born"
+                android:textColor="@color/police_blue"
+                android:textSize="@dimen/_12ssp"
+                app:fontFamily="@font/inter"
+                app:layout_constraintBottom_toBottomOf="@id/tvDob"
+                app:layout_constraintStart_toStartOf="@id/tvNickName"
+                app:layout_constraintTop_toTopOf="@id/tvDob" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDob"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:text="@string/blank"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                app:fontFamily="@font/inter"
+                app:layout_constraintStart_toStartOf="@id/tvNickNameInfo"
+                app:layout_constraintTop_toBottomOf="@id/tvNickNameInfo"
+                tools:text="November 05, 1988 ( 34 years )" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvBirthPlace"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:text="@string/birth_place"
+                android:textColor="@color/police_blue"
+                android:textSize="@dimen/_12ssp"
+                app:fontFamily="@font/inter"
+                app:layout_constraintBottom_toBottomOf="@id/tvBirthPlaceInfo"
+                app:layout_constraintStart_toStartOf="@id/tvBorn"
+                app:layout_constraintTop_toTopOf="@id/tvBirthPlaceInfo" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvBirthPlaceInfo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:text="@string/blank"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                app:fontFamily="@font/inter"
+                app:layout_constraintStart_toStartOf="@id/tvDob"
+                app:layout_constraintTop_toBottomOf="@id/tvDob"
+                tools:text="Delhi" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvHeight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:text="@string/height"
+                android:textColor="@color/police_blue"
+                android:textSize="@dimen/_12ssp"
+                app:fontFamily="@font/inter"
+                app:layout_constraintBottom_toBottomOf="@id/tvHeightInfo"
+                app:layout_constraintStart_toStartOf="@id/tvBirthPlace"
+                app:layout_constraintTop_toTopOf="@id/tvHeightInfo" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvHeightInfo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:text="@string/blank"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                app:fontFamily="@font/inter"
+                app:layout_constraintStart_toStartOf="@id/tvBirthPlaceInfo"
+                app:layout_constraintTop_toBottomOf="@id/tvBirthPlaceInfo"
+                tools:text="5 ft 9 in ( 175 cm )" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvRanking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_16sdp"
+                android:text="@string/best_ranking_underlined"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13ssp"
+                app:fontFamily="@font/inter"
+                app:layout_constraintBottom_toTopOf="@id/tvT20"
+                app:layout_constraintStart_toStartOf="@id/tvPersonalInfo"
+                app:layout_constraintTop_toBottomOf="@id/tvHeight"
+                app:textAllCaps="true" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:text="@string/test_underlined"
+                android:textColor="@color/police_blue"
+                android:textSize="@dimen/_12ssp"
+                app:fontFamily="@font/inter"
+                app:layout_constraintBottom_toBottomOf="@id/tvOdi"
+                app:layout_constraintEnd_toStartOf="@id/tvOdi"
+                app:layout_constraintStart_toEndOf="@id/tvBat"
+                app:layout_constraintTop_toTopOf="@id/tvOdi"
+                app:textAllCaps="true" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvOdi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:text="@string/odi_underlined"
+                android:textColor="@color/police_blue"
+                android:textSize="@dimen/_12ssp"
+                app:fontFamily="@font/inter"
+                app:layout_constraintBottom_toBottomOf="@id/tvT20"
+                app:layout_constraintEnd_toStartOf="@id/tvT20"
+                app:layout_constraintStart_toEndOf="@id/tvTest"
+                app:layout_constraintTop_toTopOf="@id/tvT20"
+                app:textAllCaps="true" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvT20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:text="@string/t20_underlined"
+                android:textColor="@color/police_blue"
+                android:textSize="@dimen/_12ssp"
+                app:fontFamily="@font/inter"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvOdi"
+                app:layout_constraintTop_toBottomOf="@id/tvRanking"
+                app:textAllCaps="true" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvBat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8sdp"
+                android:text="@string/bat_underlined"
+                android:textColor="@color/police_blue"
+                android:textSize="@dimen/_12ssp"
+                app:fontFamily="@font/inter"
+                app:layout_constraintStart_toStartOf="@id/tvRanking"
+                app:layout_constraintTop_toBottomOf="@id/tvTest" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvBall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:text="@string/ball_underlined"
+                android:textColor="@color/police_blue"
+                android:textSize="@dimen/_12ssp"
+                app:fontFamily="@font/inter"
+                app:layout_constraintBottom_toTopOf="@id/tvBio"
+                app:layout_constraintStart_toStartOf="@id/tvBat"
+                app:layout_constraintTop_toBottomOf="@id/tvBat" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvBatTest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:text="@string/blank"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                app:fontFamily="@font/inter"
+                app:layout_constraintEnd_toEndOf="@id/tvTest"
+                app:layout_constraintStart_toStartOf="@id/tvTest"
+                app:layout_constraintTop_toBottomOf="@id/tvTest"
+                tools:text="11" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvBatOdi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:text="@string/blank"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                app:fontFamily="@font/inter"
+                app:layout_constraintBottom_toBottomOf="@id/tvBatTest"
+                app:layout_constraintEnd_toEndOf="@id/tvOdi"
+                app:layout_constraintStart_toStartOf="@id/tvOdi"
+                app:layout_constraintTop_toTopOf="@id/tvBatTest"
+                tools:text="10" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvBatT20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:text="@string/blank"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                app:fontFamily="@font/inter"
+                app:layout_constraintBottom_toBottomOf="@id/tvBatOdi"
+                app:layout_constraintEnd_toEndOf="@id/tvT20"
+                app:layout_constraintStart_toStartOf="@id/tvT20"
+                app:layout_constraintTop_toTopOf="@id/tvBatOdi"
+                tools:text="10" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvBallTest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:text="@string/blank"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                app:fontFamily="@font/inter"
+                app:layout_constraintEnd_toEndOf="@id/tvBatTest"
+                app:layout_constraintStart_toStartOf="@id/tvBatTest"
+                app:layout_constraintTop_toBottomOf="@id/tvBatTest"
+                tools:text="--" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvBallOdi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:text="@string/blank"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                app:fontFamily="@font/inter"
+                app:layout_constraintEnd_toEndOf="@id/tvBatOdi"
+                app:layout_constraintStart_toStartOf="@id/tvBatOdi"
+                app:layout_constraintTop_toBottomOf="@id/tvBatOdi"
+                tools:text="--" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvBallT20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:text="@string/blank"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                app:fontFamily="@font/inter"
+                app:layout_constraintEnd_toEndOf="@id/tvBatT20"
+                app:layout_constraintStart_toStartOf="@id/tvBatT20"
+                app:layout_constraintTop_toBottomOf="@id/tvBatT20"
+                tools:text="--" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvBio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_16sdp"
+                android:text="@string/bio_underlined"
+                android:textColor="@color/police_blue"
+                android:textSize="@dimen/_13ssp"
+                app:fontFamily="@font/inter"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tvRanking"
+                app:layout_constraintTop_toBottomOf="@id/tvBall"
+                app:textAllCaps="true" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvBioInfo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_16sdp"
+                android:text="@string/blank"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13ssp"
+                app:fontFamily="@font/inter"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvBio"
+                tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

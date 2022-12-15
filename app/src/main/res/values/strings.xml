@@ -7,8 +7,12 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >4 characters</string>
     <string name="invalid_username_and_password">please check your username and password</string>
-    <string name="search_error">there is no such recipe name</string>
+    <string name="search_error">No results found</string>
     <string name="no_content">Nothing to show!</string>
+
+    <!--    Appbar Strings-->
+    <string name="browse_players">Browse Players</string>
+    <string name="player_info">Player Info</string>
 
     <!--    Bottom Menu Strings-->
     <string name="profile">Profile</string>
@@ -17,8 +21,41 @@
     <string name="matches">Matches</string>
 
     <!--  Players Strings  -->
-    <string name="hint_search_player">Search Player</string>
+    <string name="trending_players_header_text"><u>Most Searched Players</u></string>
+    <string name="search_player">Search Player</string>
     <string name="default_player_name">M.S. Dhoni</string>
     <string name="default_player_role">Batsman</string>
-    <string name="default_team">India</string>
+    <string name="default_player_team">India</string>
+    <string name="personal_information_underlined"><u>Personal Information</u></string>
+    <string name="nickname">Nickname</string>
+    <string name="born">Born</string>
+    <string name="birth_place">Birth Place</string>
+    <string name="height">Height</string>
+    <string name="best_ranking_underlined"><u>Best Ranking</u></string>
+    <string name="test_underlined"><u>Test</u></string>
+    <string name="odi_underlined"><u>Odi</u></string>
+    <string name="t20_underlined"><u>T20</u></string>
+    <string name="test">Test</string>
+    <string name="odi">Odi</string>
+    <string name="t20">T20</string>
+    <string name="ipl">Ipl</string>
+    <string name="batting">Batting</string>
+    <string name="bowling">Bowling</string>
+    <string name="bat_underlined"><u>Bat</u></string>
+    <string name="ball_underlined"><u>Ball</u></string>
+    <string name="bio_underlined"><u>Bio</u></string>
+    <string name="blank">--</string>
+    <string name="innings">Innings</string>
+    <string name="runs">Runs</string>
+    <string name="balls">Balls</string>
+    <string name="highest">Highest</string>
+    <string name="average">Average</string>
+    <string name="sr">sr</string>
+    <string name="not_out">Not Out</string>
+    <string name="fours">Fours</string>
+    <string name="sixes">Sixes</string>
+    <string name="fifties">50s</string>
+    <string name="hundreds">100s</string>
+    <string name="career">Career</string>
+
 </resources>

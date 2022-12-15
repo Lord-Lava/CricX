@@ -4,7 +4,7 @@ import com.squareup.moshi.Json
 
 data class PlayersListDto(
     @Json(name = "category")
-    val category: String,
+    val category: String = "",
     @Json(name = "player")
     val playersList: List<Player> = emptyList(),
 )

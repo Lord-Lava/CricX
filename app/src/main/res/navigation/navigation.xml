@@ -43,5 +43,19 @@
         android:id="@+id/playersSearchFragment"
         android:name="com.lava.cricx.ui.component.players.PlayersSearchFragment"
         android:label="fragment_players_search"
-        tools:layout="@layout/fragment_players_search" />
+        tools:layout="@layout/fragment_players_search">
+        <action
+            android:id="@+id/action_playersSearchFragment_to_playerInfoActivity"
+            app:destination="@id/playerInfoActivity"
+            app:popUpTo="@id/playersSearchFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/playerInfoActivity"
+        android:name="com.lava.cricx.ui.component.players.PlayerInfoActivity"
+        android:label="activity_player_info"
+        tools:layout="@layout/activity_player_info">
+        <argument
+            android:name="playerId"
+            app:argType="string" />
+    </activity>
 </navigation>

@@ -33,6 +33,7 @@ buildscript {
         version_expresso = '3.5.0'
         version_mock = '1.10.5'
         version_sdp = '1.0.6'
+        version_smooth_bottom_bar = '1.7.9'
     }
 
     dependencies {

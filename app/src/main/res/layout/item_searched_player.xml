@@ -7,23 +7,29 @@
     android:layout_height="wrap_content"
     android:padding="@dimen/_8sdp">
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ivPlayer"
         android:layout_width="@dimen/_40sdp"
         android:layout_height="@dimen/_40sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@id/divider"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/roundRect"
         tools:src="@tools:sample/avatars" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvPlayerName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_4sdp"
+        android:layout_marginHorizontal="@dimen/_60sdp"
+        android:layout_marginVertical="@dimen/_4sdp"
         android:text="@string/default_player_name"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:textColor="@color/black"
         android:textSize="@dimen/_12ssp"
+        app:fontFamily="@font/inter"
         app:layout_constraintStart_toEndOf="@id/ivPlayer"
         app:layout_constraintTop_toTopOf="@id/ivPlayer" />
 
@@ -31,11 +37,23 @@
         android:id="@+id/tvPlayerTeam"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/default_team"
+        android:layout_marginVertical="@dimen/_3sdp"
+        android:text="@string/default_player_team"
         android:textColor="@color/black"
         android:textSize="@dimen/_10ssp"
+        app:fontFamily="@font/inter"
         app:layout_constraintBottom_toBottomOf="@id/ivPlayer"
         app:layout_constraintStart_toStartOf="@id/tvPlayerName"
         app:layout_constraintTop_toBottomOf="@id/tvPlayerName" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/police_blue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivPlayer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

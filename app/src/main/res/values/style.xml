@@ -8,6 +8,6 @@
 
     <style name="roundRect">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">5%</item>
+        <item name="cornerSize">@dimen/_8sdp</item>
     </style>
 </resources>

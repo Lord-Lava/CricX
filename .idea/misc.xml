@@ -3,22 +3,52 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/drawable/bg_edit_text_search.xml" value="0.1515" />
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/drawable/ic_back_arrow.xml" value="0.1795" />
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/drawable/ic_baseline_account_box_24.xml" value="0.225" />
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.1515" />
         <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/drawable/ic_cricket.xml" value="0.22" />
         <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/drawable/ic_flag_india.xml" value="0.225" />
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/drawable/ic_group_10.xml" value="0.1865" />
         <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/drawable/ic_home.xml" value="0.22" />
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/drawable/ic_nav_drawer.xml" value="0.1795" />
         <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/drawable/ic_news.xml" value="0.22" />
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/drawable/ic_player_default.xml" value="0.225" />
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/drawable/ic_response1.xml" value="0.1865" />
         <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/drawable/ic_search.xml" value="0.22" />
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/drawable/ic_share.xml" value="0.1515" />
         <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/drawable/ic_user_circle.xml" value="0.22" />
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/drawable/ic_user_default.xml" value="0.225" />
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/drawable/ic_user_rect.xml" value="0.225" />
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/drawable/nav_header.xml" value="0.213" />
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/drawable/shadow_edittext.xml" value="0.1515" />
         <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/layout/activity_home.xml" value="0.2" />
         <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/layout/activity_main.xml" value="0.21822916666666667" />
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/layout/activity_player_info.xml" value="0.2171875" />
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/layout/fragment_balling.xml" value="0.21354166666666666" />
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/layout/fragment_batting.xml" value="0.21354166666666666" />
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/layout/fragment_career.xml" value="0.17686787674124102" />
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/layout/fragment_career_alternate.xml" value="0.17686787674124102" />
         <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/layout/fragment_home.xml" value="0.2171875" />
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/layout/fragment_info.xml" value="0.2" />
         <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/layout/fragment_matches.xml" value="0.2171875" />
         <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/layout/fragment_news.xml" value="0.2171875" />
-        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/layout/fragment_players_search.xml" value="0.2" />
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/layout/fragment_player_info.xml" value="0.21822916666666667" />
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/layout/fragment_players_search.xml" value="0.264" />
         <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/layout/fragment_profile.xml" value="0.1782051282051282" />
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/layout/fragment_stats.xml" value="0.1791363830696879" />
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/layout/item_career.xml" value="0.17686787674124102" />
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/layout/item_career_header.xml" value="0.17828131680205217" />
         <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/layout/item_searched_player.xml" value="0.4" />
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/layout/item_stats.xml" value="0.1791363830696879" />
         <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/layout/item_trending_player.xml" value="0.4" />
-        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/menu/menu_bottom_navbar.xml" value="0.6" />
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/layout/layout_navheader_home.xml" value="0.21822916666666667" />
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/layout/nav_header.xml" value="0.21822916666666667" />
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/layout/snippet_stats_header.xml" value="0.2" />
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/layout/snippet_toolbar.xml" value="0.264" />
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/layout/temp.xml" value="0.17828131680205217" />
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/menu/menu_bottom_navbar.xml" value="0.21822916666666667" />
+        <entry key="..\:/Android Studio Projects/CricX/app/src/main/res/menu/menu_navdrawer.xml" value="0.2171875" />
       </map>
     </option>
   </component>

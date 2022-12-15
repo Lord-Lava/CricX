@@ -4,18 +4,18 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.Toast
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.LiveData
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lava.cricx.R
 import com.lava.cricx.data.Resource
-import com.lava.cricx.data.dto.mapper.toPlayersList
-import com.lava.cricx.data.dto.players.PlayersListDto
 import com.lava.cricx.databinding.FragmentPlayersSearchBinding
 import com.lava.cricx.domain.model.players.PlayersList
 import com.lava.cricx.ui.base.BaseFragment
-import com.lava.cricx.ui.component.players.adapter.SearchedPlayersAdapter
-import com.lava.cricx.ui.component.players.adapter.TrendingPlayersAdapter
+import com.lava.cricx.ui.component.players.adapter.searchedPlayers.SearchedPlayersAdapter
+import com.lava.cricx.ui.component.players.adapter.trendingPlayers.TrendingPlayersAdapter
 import com.lava.cricx.util.SingleEvent
 import com.lava.cricx.util.extensions.*
 import dagger.hilt.android.AndroidEntryPoint
@@ -32,8 +32,9 @@ class PlayersSearchFragment :
         FragmentPlayersSearchBinding.bind(view)
 
     override fun setupViews() {
-        val layoutManager = LinearLayoutManager(requireContext())
+        val layoutManager = LinearLayoutManager(context)
         binding.rvPlayersList.layoutManager = layoutManager
+        activity?.findViewById<AppCompatTextView>(R.id.tvToolbarTitle)?.text = getString(R.string.browse_players)
     }
 
     override fun onResume() {
@@ -46,21 +47,23 @@ class PlayersSearchFragment :
     private fun handleSearchQuery(event: SingleEvent<String>) {
         event.getContentIfNotHandled()?.let { query ->
             if (query.isEmpty()) {
+                binding.tvTrendingPlayersHeader.visible()
+                viewModel.cancelPlayerSearch()
                 if (viewModel.trendingPlayersList.value != null)
-                    bindTrendingPlayersListData(viewModel.trendingPlayersList.value?.data?.toPlayersList())
+                    bindTrendingPlayersListData(viewModel.trendingPlayersList.value?.data)
                 else
                     viewModel.getTrendingPlayers()
             } else if (query.isNotEmpty() && query.length >= 2) {
+                binding.tvTrendingPlayersHeader.gone()
                 viewModel.searchPlayer(query)
             }
         }
     }
 
-    private fun handleTrendingPlayersList(status: Resource<PlayersListDto>) {
+    private fun handleTrendingPlayersList(status: Resource<PlayersList>) {
         when (status) {
             is Resource.Loading -> showLoadingView()
-            is Resource.Success -> status.data?.toPlayersList()
-                .let { bindTrendingPlayersListData(playersList = it) }
+            is Resource.Success -> bindTrendingPlayersListData(playersList = status.data)
             is Resource.DataError -> {
                 showDataView(false)
                 status.errorCode?.let { viewModel.showToastMessage(it) }
@@ -68,12 +71,10 @@ class PlayersSearchFragment :
         }
     }
 
-    private fun handleSearchedPlayersList(status: Resource<PlayersListDto>) {
+    private fun handleSearchedPlayersList(status: Resource<PlayersList>) {
         when (status) {
             is Resource.Loading -> showLoadingView()
-            is Resource.Success -> status.data?.toPlayersList().let {
-                bindSearchedPlayersListData(playersList = it)
-            }
+            is Resource.Success -> bindSearchedPlayersListData(playersList = status.data)
             is Resource.DataError -> {
                 showDataView(false)
                 status.errorCode?.let { viewModel.showToastMessage(it) }
@@ -115,10 +116,17 @@ class PlayersSearchFragment :
         binding.root.showToast(this, event, Toast.LENGTH_LONG)
     }
 
+    private fun handleNavigation(event: SingleEvent<String>) {
+        event.getContentIfNotHandled()?.let { playerId ->
+            this.findNavController().navigate(PlayersSearchFragmentDirections.actionPlayersSearchFragmentToPlayerInfoActivity(playerId))
+        }
+    }
+
     override fun observeViewModel() {
         observe(liveData = viewModel.trendingPlayersList, action = ::handleTrendingPlayersList)
         observe(liveData = viewModel.searchedPlayersResponseList, action = ::handleSearchedPlayersList)
         observeEvent(liveData = viewModel.searchQuery, action = ::handleSearchQuery)
+        observeEvent(liveData = viewModel.navigateToPlayerInfoFragment, action = ::handleNavigation)
         observeToast(viewModel.showToast)
     }
 }

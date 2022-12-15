@@ -5,7 +5,16 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
+
+    <!--    Shades of Blue-->
+    <color name="han_blue">#3F5DC8</color>
+    <color name="police_blue">#32495F</color>
+    <color name="steel_blue">#417DB5</color>
+    <color name="vodka">#BBC9FB</color>
+
     <color name="black">#181818</color>
     <color name="white">#FFFFFFFF</color>
     <color name="green">#008000</color>
+    <string name="gray">#7F7F7F</string>
+    <color name="light_gray">#D3D3D3</color>
 </resources>

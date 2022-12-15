@@ -4,11 +4,11 @@ import com.squareup.moshi.Json
 
 data class Player(
     @Json(name = "faceImageId")
-    val faceImageId: String,
+    val faceImageId: String = "",
     @Json(name = "id")
-    val id: String,
+    val id: String = "",
     @Json(name = "name")
-    val name: String,
+    val name: String = "",
     @Json(name = "teamName")
-    val teamName: String,
+    val teamName: String = "",
 )

@@ -1,4 +1,4 @@
-package com.lava.cricx.ui.component.players.adapter
+package com.lava.cricx.ui.component.players.adapter.trendingPlayers
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,6 +7,7 @@ import com.lava.cricx.data.dto.players.Player
 import com.lava.cricx.databinding.ItemTrendingPlayerBinding
 import com.lava.cricx.ui.base.listeners.PlayerItemListener
 import com.lava.cricx.ui.component.players.PlayerSearchViewModel
+import com.lava.cricx.ui.component.players.adapter.trendingPlayers.TrendingPlayersViewHolder
 
 class TrendingPlayersAdapter(
     private val playerSearchViewModel: PlayerSearchViewModel,
@@ -15,7 +16,7 @@ class TrendingPlayersAdapter(
 
     private val onItemClickListener: PlayerItemListener = object : PlayerItemListener {
         override fun onPlayerSelected(player: Player) {
-
+            playerSearchViewModel.onPlayerClicked(player.id)
         }
     }
 

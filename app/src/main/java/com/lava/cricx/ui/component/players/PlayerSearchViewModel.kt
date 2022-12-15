@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.lava.cricx.data.Resource
-import com.lava.cricx.data.dto.players.PlayersListDto
+import com.lava.cricx.domain.model.players.PlayersList
 import com.lava.cricx.domain.repository.PlayersRepository
 import com.lava.cricx.ui.base.BaseViewModel
 import com.lava.cricx.util.SingleEvent
@@ -23,13 +23,13 @@ class PlayerSearchViewModel @Inject constructor(
 ) : BaseViewModel() {
 
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-    private val _trendingPlayersList = MutableLiveData<Resource<PlayersListDto>>()
-    val trendingPlayersList = _trendingPlayersList as LiveData<Resource<PlayersListDto>>
+    private val _trendingPlayersList = MutableLiveData<Resource<PlayersList>>()
+    val trendingPlayersList = _trendingPlayersList as LiveData<Resource<PlayersList>>
 
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-    private val _searchedPlayersResponseList = MutableLiveData<Resource<PlayersListDto>>()
+    private val _searchedPlayersResponseList = MutableLiveData<Resource<PlayersList>>()
     val searchedPlayersResponseList =
-        _searchedPlayersResponseList as LiveData<Resource<PlayersListDto>>
+        _searchedPlayersResponseList as LiveData<Resource<PlayersList>>
 
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
     private val _searchQuery = MutableLiveData<SingleEvent<String>>()
@@ -41,6 +41,10 @@ class PlayerSearchViewModel @Inject constructor(
 
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
     private var searchPlayerJob: Job? = null
+
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    private val _navigateToPlayerInfoFragment = MutableLiveData<SingleEvent<String>>()
+    val navigateToPlayerInfoFragment = _navigateToPlayerInfoFragment as LiveData<SingleEvent<String>>
 
     init {
         getTrendingPlayers()
@@ -72,6 +76,14 @@ class PlayerSearchViewModel @Inject constructor(
                 }
             }
         }
+    }
+
+    fun onPlayerClicked(playerId: String) {
+        _navigateToPlayerInfoFragment.value = SingleEvent(playerId)
+    }
+
+    fun cancelPlayerSearch() {
+        searchPlayerJob?.cancel()
     }
 
     fun showToastMessage(errorCode: Int) {

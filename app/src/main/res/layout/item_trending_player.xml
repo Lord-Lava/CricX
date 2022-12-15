@@ -7,23 +7,30 @@
     android:layout_height="wrap_content"
     android:padding="@dimen/_8sdp">
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ivPlayer"
-        android:layout_width="@dimen/_70sdp"
-        android:layout_height="@dimen/_70sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_marginBottom="@dimen/_9sdp"
+        app:layout_constraintBottom_toTopOf="@id/divider"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/roundRect"
         tools:src="@tools:sample/avatars" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvPlayerName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_4sdp"
+        android:layout_marginHorizontal="@dimen/_60sdp"
+        android:layout_marginVertical="@dimen/_4sdp"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:text="@string/default_player_name"
         android:textColor="@color/black"
-        android:textSize="@dimen/_16ssp"
+        android:textSize="@dimen/_14ssp"
+        app:fontFamily="@font/inter"
+        app:layout_constraintBottom_toTopOf="@id/tvPlayerTeam"
         app:layout_constraintStart_toEndOf="@id/ivPlayer"
         app:layout_constraintTop_toTopOf="@id/ivPlayer" />
 
@@ -44,22 +51,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="@dimen/_3sdp"
-        android:text="@string/default_team"
+        android:text="@string/default_player_team"
         android:textColor="@color/black"
-        android:textSize="@dimen/_14ssp"
-        app:layout_constraintBottom_toTopOf="@id/tvPlayerRole"
+        android:textSize="@dimen/_12ssp"
+        app:fontFamily="@font/inter"
+        app:layout_constraintBottom_toBottomOf="@id/ivPlayer"
         app:layout_constraintStart_toStartOf="@id/tvPlayerName"
         app:layout_constraintTop_toBottomOf="@id/tvPlayerName" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvPlayerRole"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/default_player_role"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_14ssp"
-        app:layout_constraintBottom_toBottomOf="@id/ivPlayer"
-        app:layout_constraintStart_toStartOf="@id/tvPlayerTeam"
-        app:layout_constraintTop_toBottomOf="@id/tvPlayerTeam" />
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/police_blue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivPlayer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
