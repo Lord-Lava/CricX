@@ -35,6 +35,7 @@ class PlayerInfoActivity : BaseActivity<ActivityPlayerInfoBinding>() {
             viewModel.getPlayerInfo(it)
             viewModel.getBattingStats(it)
             viewModel.getBowlingStats(it)
+            viewModel.getPlayerCareer(it)
         }
     }
 

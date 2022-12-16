@@ -57,5 +57,7 @@
     <string name="fifties">50s</string>
     <string name="hundreds">100s</string>
     <string name="career">Career</string>
+    <string name="last_played">Last Played</string>
+    <string name="debut">Debut</string>
 
 </resources>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clCareer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvFormat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/vodka"
+        android:ellipsize="marquee"
+        android:paddingStart="@dimen/_16sdp"
+        android:paddingTop="@dimen/_8sdp"
+        android:paddingEnd="@dimen/_16sdp"
+        android:paddingBottom="@dimen/_8sdp"
+        android:singleLine="true"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_13ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:textAllCaps="true"
+        tools:text="@string/test" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvDebut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:text="@string/debut"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_13ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvDebutInfo" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvDebutInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintBottom_toTopOf="@id/tvLastPlayedInfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tvLastPlayedInfo"
+        app:layout_constraintTop_toBottomOf="@id/tvFormat"
+        tools:text="vs Zimbabwe, 2010-06-12, Harare
+sports Club" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvLastPlayed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:text="@string/last_played"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_13ssp"
+        app:layout_constraintStart_toStartOf="@id/tvDebut"
+        app:layout_constraintTop_toTopOf="@id/tvLastPlayedInfo" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvLastPlayedInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginBottom="@dimen/_16sdp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/tvDebutInfo"
+        app:layout_constraintStart_toEndOf="@id/tvLastPlayed"
+        app:layout_constraintTop_toBottomOf="@id/tvDebutInfo"
+        tools:text="vs England, 2022-11-10, Adelaide
+Oval" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
