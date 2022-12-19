@@ -8,7 +8,9 @@ import com.lava.cricx.databinding.ActivityPlayerInfoBinding
 import com.lava.cricx.databinding.SnippetToolbarBinding
 import com.lava.cricx.ui.base.BaseActivity
 import com.lava.cricx.ui.component.players.adapter.ViewPagerAdapter
+import com.lava.cricx.util.extensions.gone
 import com.lava.cricx.util.extensions.showToast
+import com.lava.cricx.util.extensions.visible
 import com.lava.cricx.util.transformers.FanTransformation
 import com.lava.cricx.util.transformers.GateTransformation
 import dagger.hilt.android.AndroidEntryPoint
@@ -40,12 +42,16 @@ class PlayerInfoActivity : BaseActivity<ActivityPlayerInfoBinding>() {
     }
 
     private fun setupAppBar() {
+        toolbarBinding.ivNavDrawer.gone()
+        toolbarBinding.ivBackArrow.visible()
         toolbarBinding.ivBackArrow.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
         toolbarBinding.tvToolbarTitle.text = getString(R.string.player_info)
-        toolbarBinding.ivNavDrawer.setImageDrawable(ContextCompat.getDrawable(this,
-            R.drawable.ic_share))
+        toolbarBinding.ivShare.visible()
+        toolbarBinding.ivShare.setOnClickListener {
+            // TODO - player info share functionality
+        }
     }
 
     override fun observeViewModel() {

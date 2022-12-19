@@ -4,6 +4,7 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.Toast
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.LiveData
@@ -34,7 +35,13 @@ class PlayersSearchFragment :
     override fun setupViews() {
         val layoutManager = LinearLayoutManager(context)
         binding.rvPlayersList.layoutManager = layoutManager
+        setupAppBar()
+    }
+
+    private fun setupAppBar() {
         activity?.findViewById<AppCompatTextView>(R.id.tvToolbarTitle)?.text = getString(R.string.browse_players)
+        activity?.findViewById<AppCompatImageView>(R.id.ivNavDrawer)?.gone()
+        activity?.findViewById<AppCompatImageView>(R.id.ivBackArrow)?.visible()
     }
 
     override fun onResume() {

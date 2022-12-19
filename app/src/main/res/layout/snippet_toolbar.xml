@@ -24,11 +24,23 @@
                     android:layout_height="@dimen/_35sdp"
                     android:padding="@dimen/_8sdp"
                     android:src="@drawable/ic_arrow_back"
-                    android:visibility="visible"
+                    android:visibility="invisible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/tvToolbarTitle"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivNavDrawer"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:padding="@dimen/_8sdp"
+                    android:src="@drawable/ic_nav_drawer"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="@id/ivBackArrow"
+                    app:layout_constraintEnd_toEndOf="@id/ivBackArrow"
+                    app:layout_constraintStart_toStartOf="@id/ivBackArrow"
+                    app:layout_constraintTop_toTopOf="@id/ivBackArrow" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvToolbarTitle"
@@ -39,22 +51,23 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/_16ssp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/ivNavDrawer"
+                    app:layout_constraintEnd_toStartOf="@id/ivShare"
                     app:layout_constraintStart_toEndOf="@id/ivBackArrow"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="@string/home" />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/ivNavDrawer"
+                    android:id="@+id/ivShare"
                     android:layout_width="@dimen/_40sdp"
                     android:layout_height="@dimen/_40sdp"
                     android:padding="@dimen/_8sdp"
-                    android:src="@drawable/ic_nav_drawer"
-                    android:visibility="visible"
+                    android:src="@drawable/ic_share"
+                    android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/tvToolbarTitle"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:visibility="visible" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

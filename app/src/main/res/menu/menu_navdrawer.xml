@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/homeFragment"
-        android:icon="@drawable/ic_home"
-        android:title="@string/home" />
-
-    <item
-        android:id="@+id/newsFragment"
-        android:icon="@drawable/ic_news"
-        android:title="@string/news" />
-
-    <item
-        android:id="@+id/matchesFragment"
-        android:icon="@drawable/ic_cricket"
-        android:title="@string/matches" />
-
-    <item
-        android:id="@+id/profileFragment"
-        android:icon="@drawable/ic_user_circle"
-        android:title="@string/profile" />
+        android:id="@+id/browsePlayers"
+        android:icon="@drawable/ic_player"
+        android:title="@string/browse_players" />
 </menu>
